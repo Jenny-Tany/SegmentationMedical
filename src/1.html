@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formTest" name="formTest">
+        <input type="text" placeholder="请输入用户名" name="user" value="wendingding">
+        <input type="password" placeholder="请输入密码" name="pass" value="123456789">
+    </form>
+</body>
+<script text="javascript">
+    //列出创建formData实例对象的几种方式
+//001 通过构造函数创建不传递任务参数
+var formData1 = new FormData();   //空的实例对象
+//通过调用对象的方法来设置数据(模拟表单)
+//设置数据
+formData1.set("name","文顶顶");
+formData1.set("email","wendingding_ios@126.com");
+formData1.set("friends","熊大");
+    
+//设置数据(追加)
+formData1.append("friends","光头强");
+formData1.append("friends","萝卜头");
+    
+//查看实例数据
+formData1.forEach(function(value, key){
+    console.log(key,value);
+})
+console.log("----------------------------------");
+//002 获取表单标签传递给FormData构造函数
+var formData2 = new FormData(document.getElementById("formTest"))
+formData2.forEach(function(value,key){
+    console.log(key,value);
+})
+</script>
+</html>
